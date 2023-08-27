@@ -1,0 +1,149 @@
+@model pc1_teoria_formulario.Models.Jugadores
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Registro de Jugadores</h2>
+                <form asp-controller="Jugadores" asp-action="RegistrarJugador" method="post">
+                    <div class="form-group">
+                        <label for="TiempoInscripcion">Tiempo de Inscripcion:</label>
+                        <select class="form-control" id="TiempoInscripcion" name="TiempoInscripcion" required>
+                            <option value="">Selecciona el tiempo de Inscripcion...</option>
+                            @foreach (var tiempoInscripcion in ViewBag.TiempoInscripcions) {
+                                <option value="@tiempoInscripcion">@tiempoInscripcion</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Nombre">Nombre:</label>
+                        <input type="text" class="form-control" id="Nombre" name="Nombre" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Edad">Edad:</label>
+                        <input type="number" class="form-control" id="Edad" name="Edad" min="1" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Genero">Genero:</label>
+                        <div class="custom-radio-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Genero" id="GeneroMasculino"
+                                    value="Masculino" required>
+                                <label class="form-check-label" for="GeneroMasculino">Masculino</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Genero" id="GeneroFemenino"
+                                    value="Femenino" required>
+                                <label class="form-check-label" for="GeneroFemenino">Femenino</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email:</label>
+                        <input type="email" class="form-control" id="Email" name="Email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Categoria">Categoria:</label>
+                        <select class="form-control" id="Categoria" name="Categoria" required>
+                            <option value="">Selecciona una categoria...</option>
+                            @foreach (var categoria in ViewBag.Categorias) {
+                                <option value="@categoria">@categoria</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Club">Club:</label>
+                        <select class="form-control" id="Club" name="Club" required>
+                            <option value="">Selecciona un Club...</option>
+                            @foreach (var club in ViewBag.Clubs) {
+                                <option value="@club">@club</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Temporada">Temporada:</label>
+                        <select class="form-control" id="Temporada" name="Temporada" required>
+                            <option value="">Selecciona una Temporada...</option>
+                            @foreach (var temporada in ViewBag.Temporadas) {
+                                <option value="@temporada">@temporada</option>
+                            }
+                        </select>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Enviar Datos</button>
+                </form>
+
+                <div id="messageDiv">
+                    <h1>@ViewData["Message"]</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .form-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(128, 189, 255, 0.25);
+    }
+
+    .form-check-input {
+        margin-right: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .custom-radio-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .custom-radio-group .form-check {
+        margin-right: 50px;
+        /* Ajusta este valor según tus necesidades, esto es para separar los radio buttons */
+    }
+</style>
