@@ -9,6 +9,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>¿Tiene faltas?</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>Edad</th>
@@ -26,6 +27,7 @@
                     @foreach (var jugadores in Model)
                     {
                         <tr class="table-row">
+                            <td>@jugadores.TieneFaltas</td>
                             <td>@jugadores.Nombre</td>
                             <td>@jugadores.Apellidos</td>
                             <td>@(jugadores.Edad.ToString()) años</td>
