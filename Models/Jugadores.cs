@@ -21,6 +21,7 @@ namespace pc1_teoria_formulario.Models {
         
         public double? TotaldeImpuesto { get; set; } // Propiedad para almacenar el monto total calculado
 
+        public bool TieneFaltas { get; set; } // es un valor booleano si le da check osea si lo marca el check box es que si tiene faltas y sera true, en caso contrario sera false
         // Método para calcular el monto total a pagar
         public void CalcularMontoTotal() {
             double costoInscripcion = 0.0; // Costo de inscripción por 6 meses

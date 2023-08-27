@@ -75,6 +75,11 @@
                             }
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="TieneFaltas">¿Tiene faltas?</label>
+                        <input type="checkbox" id="TieneFaltas" name="TieneFaltas" asp-for="TieneFaltas" />
+                    </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Enviar Datos</button>
                 </form>
@@ -85,6 +90,8 @@
                     <h4>@ViewData["Message2"]</h4>
                     <h4>@ViewData["Message3"]</h4>
                     <h4>@ViewData["Message4"]</h4>
+                    <h4>@ViewData["Message5"]</h4>
+                    <h4>@ViewData["Message6"]</h4>
                 </div>
             </div>
         </div>

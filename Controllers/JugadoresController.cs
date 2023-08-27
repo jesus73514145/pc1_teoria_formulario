@@ -41,7 +41,8 @@ namespace pc1_teoria_formulario.Controllers {
             ViewData["Message2"] = "Tiempo de Inscripción: " + objJugadores.TiempoInscripcion;
             ViewData["Message3"] = "Impuesto Total: " +  (objJugadores.TotaldeImpuesto?.ToString("C") ?? "0.00");
             ViewData["Message4"] = "Monto total a pagar: " +  (objJugadores.MontoTotal?.ToString("C") ?? "0.00");
-            ViewData["Message5"] = "Para mas información puedes ver la lista de jugadores.";
+            ViewData["Message5"] = "¿Tiene faltas? "+objJugadores.TieneFaltas;
+            ViewData["Message6"] = "Para mas información puedes ver la lista de jugadores.";
             return View("Index");
         }
 
