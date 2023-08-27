@@ -1,0 +1,79 @@
+@model List<pc1_teoria_formulario.Models.Jugadores>
+@{
+    ViewData["Title"] = "Lista de Jugadores Registrados";
+}
+<div class="row justify-content-center">
+    <div class="col-md-14">
+        <h2 class="text-center mb-4">Lista de Jugadores Registrados</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Edad</th>
+                        <th>Género</th>
+                        <th>Email</th>
+                        <th>Categoria</th>
+                        <th>Club</th>
+                        <th>Temporadas</th>
+                        <th>Tiempo de Inscripción</th>
+                        <th>Impuesto del 19%</th>
+                        <th>Monto Total a Pagar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var jugadores in Model)
+                    {
+                        <tr class="table-row">
+                            <td>@jugadores.Nombre</td>
+                            <td>@jugadores.Apellidos</td>
+                            <td>@(jugadores.Edad.ToString()) años</td>
+                            <td>@jugadores.Genero</td>
+                            <td>@jugadores.Email</td>
+                            <td>@jugadores.Categoria</td>
+                            <td>@jugadores.Club</td>
+                            <td>@jugadores.Temporada</td>
+                            <td>@jugadores.TiempoInscripcion</td>
+                            <td>@jugadores.TotaldeImpuesto?.ToString("C")</td>
+                            <td>@jugadores.MontoTotal?.ToString("C")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <br><br>
+    </div>
+</div>
+<style>
+    /*ESTO ES PARA LA PARTE DE LISTAR LOS ESTUDIANTES*/
+    table {
+        background-color: white;
+        text-align: left;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        /* Aumenta el espaciado para mejorar la legibilidad */
+        border: 1px solid #ddd;
+        /* Agrega un borde en todas las celdas */
+    }
+
+    thead {
+        background-color: #000000;
+        /*#246355*/
+        border-bottom: solid 5px #0F3620;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #ddd;
+    }
+
+    tr:hover {
+        background-color: #369681;
+        color: white;
+    }
+</style>

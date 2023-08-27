@@ -17,10 +17,12 @@ namespace pc1_teoria_formulario.Models {
         public string? Club { get; set; } // Nuevo atributo
         public string? Temporada { get; set; }
 
-        public decimal MontoTotal { get; set; } // Propiedad para almacenar el monto total calculado
+        public double? MontoTotal { get; set; } 
+        
+        public double? TotaldeImpuesto { get; set; } // Propiedad para almacenar el monto total calculado
 
         // Método para calcular el monto total a pagar
-        public double CalcularMontoTotal() {
+        public void CalcularMontoTotal() {
             double costoInscripcion = 0.0; // Costo de inscripción por 6 meses
             int numeroTemporadas = 0;
 
@@ -45,7 +47,9 @@ namespace pc1_teoria_formulario.Models {
                 costoInscripcion = 1200.0;
             }
 
-            return costoInscripcion * numeroTemporadas;
+            
+            TotaldeImpuesto = (costoInscripcion * numeroTemporadas)*0.19;
+            MontoTotal = (costoInscripcion * numeroTemporadas)-TotaldeImpuesto;
         }
     }
 }
